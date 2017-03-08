@@ -30,6 +30,7 @@ CBUUID *adafruitServiceUUID;
 CBUUID *lairdServiceUUID;
 CBUUID *blueGigaServiceUUID;
 CBUUID *serialServiceUUID;
+CBUUID *raspServiceUUID;
 CBUUID *readCharacteristicUUID;
 CBUUID *writeCharacteristicUUID;
 
@@ -212,8 +213,10 @@ CBUUID *writeCharacteristicUUID;
     adafruitServiceUUID = [CBUUID UUIDWithString:@ADAFRUIT_SERVICE_UUID];
     lairdServiceUUID = [CBUUID UUIDWithString:@LAIRD_SERVICE_UUID];
     blueGigaServiceUUID = [CBUUID UUIDWithString:@BLUEGIGA_SERVICE_UUID];
-    NSArray *services = @[redBearLabsServiceUUID, adafruitServiceUUID, lairdServiceUUID, blueGigaServiceUUID];
-    [self.CM scanForPeripheralsWithServices:services options: nil];
+    raspServiceUUID = [CBUUID UUIDWithString:@RASP_SERVICE_UUID];
+    NSArray *services = @[redBearLabsServiceUUID, adafruitServiceUUID, lairdServiceUUID, blueGigaServiceUUID, raspServiceUUID];
+    //[self.CM scanForPeripheralsWithServices:services options: nil];
+    [self.CM scanForPeripheralsWithServices:nil options:nil]; // Start scanning
 #else
     [self.CM scanForPeripheralsWithServices:nil options:nil]; // Start scanning
 #endif
@@ -548,6 +551,12 @@ static bool done = false;
                 serialServiceUUID = blueGigaServiceUUID;
                 readCharacteristicUUID = [CBUUID UUIDWithString:@BLUEGIGA_CHAR_TX_UUID];
                 writeCharacteristicUUID = [CBUUID UUIDWithString:@BLUEGIGA_CHAR_RX_UUID];
+                break;
+            } else if ([service.UUID isEqual:raspServiceUUID]) {
+                NSLog(@"RaspBerry Bluetooth");
+                serialServiceUUID = raspServiceUUID;
+                readCharacteristicUUID = [CBUUID UUIDWithString:@RASP_CHAR_TX_UUID];
+                writeCharacteristicUUID = [CBUUID UUIDWithString:@RASP_CHAR_RX_UUID];
                 break;
             } else {
                 // ignore unknown services

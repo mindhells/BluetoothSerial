@@ -1,14 +1,14 @@
 
 /*
- 
+
  Copyright (c) 2013 RedBearLab
- 
+
  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
- 
+
  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
- 
+
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- 
+
  */
 
 // BlueGiga Service
@@ -32,5 +32,10 @@
 #define LAIRD_SERVICE_UUID                       "569a1101-b87f-490c-92cb-11ba5ea5167c"
 #define LAIRD_CHAR_TX_UUID                       "569a2000-b87f-490c-92cb-11ba5ea5167c"
 #define LAIRD_CHAR_RX_UUID                       "569a2001-b87f-490c-92cb-11ba5ea5167c"
+
+// RASPBERRY
+#define RASP_SERVICE_UUID                       "00001200-0000-1000-8000-00805f9b34fb"  //"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"//"53A9BEF0-0811-758E-7F6D-780503F784C9"
+#define RASP_CHAR_TX_UUID                       "00001800-0000-1000-8000-00805f9b34fb"
+#define RASP_CHAR_RX_UUID                       "00001801-0000-1000-8000-00805f9b34fb"
 
 #define RBL_BLE_FRAMEWORK_VER                    0x0200
